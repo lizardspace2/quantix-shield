@@ -6,11 +6,11 @@ const HeroSection = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
       {/* Animated Grid Background */}
       <div className="absolute inset-0 grid-pattern opacity-40" />
-      
+
       {/* Glowing Orbs */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[120px] animate-pulse-slow" />
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/20 rounded-full blur-[100px] animate-pulse-slow" style={{ animationDelay: '2s' }} />
-      
+
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Badge */}
@@ -28,15 +28,17 @@ const HeroSection = () => {
 
           {/* Subtitle */}
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 animate-slide-up" style={{ animationDelay: '0.2s' }}>
-            Quantix (QTX) is a next-generation blockchain designed to withstand quantum computing threats, 
+            Quantix (QTX) is a next-generation blockchain designed to withstand quantum computing threats,
             leveraging Crystals-Dilithium cryptography and energy-efficient Proof-of-Stake.
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-slide-up" style={{ animationDelay: '0.3s' }}>
-            <Button variant="hero" size="xl">
-              Read Whitepaper
-            </Button>
+            <a href="/whitepaper">
+              <Button variant="hero" size="xl">
+                Read Whitepaper
+              </Button>
+            </a>
             <Button variant="heroOutline" size="xl">
               Launch Wallet
             </Button>
