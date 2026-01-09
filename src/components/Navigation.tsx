@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { Button } from './ui/button';
 import { Menu, X } from 'lucide-react';
 import { Logo } from './Logo';
@@ -15,6 +16,8 @@ const navLinks = [
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,11 +30,17 @@ const Navigation = () => {
   const handleClick = (link: { label: string; href: string; external?: boolean }) => {
     if (link.external) {
       window.open(link.href, '_blank', 'noopener,noreferrer');
-    } else {
-      const element = document.querySelector(link.href);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+    } else if (link.href.startsWith('#')) {
+      if (location.pathname !== '/') {
+        navigate('/' + link.href);
+      } else {
+        const element = document.querySelector(link.href);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
       }
+    } else {
+      navigate(link.href);
     }
     setIsMobileOpen(false);
   };
@@ -43,20 +52,32 @@ const Navigation = () => {
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <a href="/" className="flex items-center gap-2 group">
+          <Link to="/" className="flex items-center gap-2 group">
             <Logo />
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <button
-                key={link.label}
-                onClick={() => handleClick(link)}
-                className="text-muted-foreground hover:text-primary transition-colors duration-200 font-medium"
-              >
-                {link.label}
-              </button>
+              link.external ? (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-primary transition-colors duration-200 font-medium"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <button
+                  key={link.label}
+                  onClick={() => handleClick(link)}
+                  className="text-muted-foreground hover:text-primary transition-colors duration-200 font-medium"
+                >
+                  {link.label}
+                </button>
+              )
             ))}
             <a href="https://wallet.quantumresistantcoin.com" target="_blank" rel="noopener noreferrer">
               <Button variant="hero" size="sm">
@@ -79,13 +100,25 @@ const Navigation = () => {
           <div className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-xl border-b border-border p-6">
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
-                <button
-                  key={link.label}
-                  onClick={() => handleClick(link)}
-                  className="text-muted-foreground hover:text-primary transition-colors duration-200 font-medium text-left py-2"
-                >
-                  {link.label}
-                </button>
+                link.external ? (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-primary transition-colors duration-200 font-medium text-left py-2"
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <button
+                    key={link.label}
+                    onClick={() => handleClick(link)}
+                    className="text-muted-foreground hover:text-primary transition-colors duration-200 font-medium text-left py-2"
+                  >
+                    {link.label}
+                  </button>
+                )
               ))}
               <a href="https://wallet.quantumresistantcoin.com" target="_blank" rel="noopener noreferrer" className="mt-4">
                 <Button variant="hero" size="lg" className="w-full">
@@ -95,9 +128,11 @@ const Navigation = () => {
             </div>
           </div>
         )}
+
       </div>
     </nav>
   );
 };
 
 export default Navigation;
+

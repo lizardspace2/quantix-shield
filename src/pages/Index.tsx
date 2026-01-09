@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
 import VisionSection from '@/components/VisionSection';
@@ -7,6 +9,19 @@ import RoadmapSection from '@/components/RoadmapSection';
 import Footer from '@/components/Footer';
 
 const Index = () => {
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      const element = document.querySelector(hash);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+  }, [hash]);
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -21,3 +36,4 @@ const Index = () => {
 };
 
 export default Index;
+
