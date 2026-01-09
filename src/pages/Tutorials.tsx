@@ -306,6 +306,110 @@ docker compose -f docker-compose-peer.yml up -d --build`}
         )
     },
     {
+        id: 'ssl',
+        title: 'SSL/HTTPS Setup',
+        icon: <Shield className="w-5 h-5" />,
+        description: 'Secure your node with Nginx and Let\'s Encrypt.',
+        content: (
+            <div className="space-y-10 animate-fade-in">
+                <section>
+                    <div className="flex items-center gap-3 mb-6">
+                        <div className="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center">
+                            <Globe className="w-6 h-6 text-purple-400" />
+                        </div>
+                        <h3 className="text-2xl font-bold tracking-tight">Reverse Proxy Setup</h3>
+                    </div>
+                    <div className="space-y-4 text-muted-foreground leading-relaxed pl-2 border-l border-white/5">
+                        <p>1. Install **Nginx** and **Certbot**:</p>
+                        <pre className="p-4 rounded-xl bg-[#0a0a0c] text-xs font-mono text-purple-300">
+                            sudo apt update && sudo apt install -y nginx certbot python3-certbot-nginx
+                        </pre>
+                        <p>2. Create a virtual host configuration for your domain:</p>
+                        <pre className="p-6 rounded-2xl bg-[#0a0a0c] border border-white/10 overflow-x-auto text-sm font-mono text-purple-400/90 leading-relaxed shadow-2xl">
+                            {`server {
+    listen 80;
+    server_name yourdomain.com;
+
+    location / {
+        proxy_pass http://localhost:3001;
+        proxy_set_header Host $host;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+    }
+}`}
+                        </pre>
+                    </div>
+                </section>
+
+                <section>
+                    <div className="flex items-center gap-3 mb-6">
+                        <div className="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center">
+                            <Shield className="w-6 h-6 text-purple-400" />
+                        </div>
+                        <h3 className="text-2xl font-bold tracking-tight">Enable SSL Certificate</h3>
+                    </div>
+                    <div className="space-y-4 text-muted-foreground leading-relaxed pl-2 border-l border-white/5">
+                        <p>Acquire a free certificate from **Let's Encrypt**:</p>
+                        <pre className="p-4 rounded-xl bg-[#0a0a0c] text-xs font-mono text-purple-300">
+                            sudo certbot --nginx -d yourdomain.com
+                        </pre>
+                        <p>Choose the option to <strong>Redirect</strong> all traffic to HTTPS to ensure maximum security.</p>
+                    </div>
+                </section>
+            </div>
+        )
+    },
+    {
+        id: 'staking',
+        title: 'Staking Guide',
+        icon: <Zap className="w-5 h-5" />,
+        description: 'Earn QTX rewards by securing the network.',
+        content: (
+            <div className="space-y-10 animate-fade-in">
+                <section>
+                    <div className="flex items-center gap-3 mb-6">
+                        <div className="w-10 h-10 rounded-xl bg-yellow-500/10 flex items-center justify-center">
+                            <Zap className="w-6 h-6 text-yellow-400" />
+                        </div>
+                        <h3 className="text-2xl font-bold tracking-tight">Proof of Stake Economy</h3>
+                    </div>
+                    <div className="space-y-4 text-muted-foreground leading-relaxed pl-2 border-l border-white/5">
+                        <p>Quantix rewards users for securing the network. Holding QTX in an online node allows you to "mint" new blocks.</p>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
+                            <div className="p-5 rounded-2xl bg-white/5 border border-white/10">
+                                <span className="text-yellow-400 font-bold block mb-1">Block Reward</span>
+                                <span className="text-2xl font-display font-bold text-white tracking-tighter">50 QTX</span>
+                                <p className="text-xs mt-2 opacity-60">Halves every 100,000 blocks</p>
+                            </div>
+                            <div className="p-5 rounded-2xl bg-white/5 border border-white/10">
+                                <span className="text-yellow-400 font-bold block mb-1">Fee Collection</span>
+                                <span className="text-2xl font-display font-bold text-white tracking-tighter">100%</span>
+                                <p className="text-xs mt-2 opacity-60">You keep all transaction fees</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div className="flex items-center gap-3 mb-6">
+                        <div className="w-10 h-10 rounded-xl bg-yellow-500/10 flex items-center justify-center">
+                            <Terminal className="w-6 h-6 text-yellow-400" />
+                        </div>
+                        <h3 className="text-2xl font-bold tracking-tight">How to Start Staking</h3>
+                    </div>
+                    <div className="space-y-4 text-muted-foreground leading-relaxed pl-2 border-l border-white/5">
+                        <p>1. **Deploy a Node**: Use any cloud provider deployment guide.</p>
+                        <p>2. **Fund the Node**: Transfer any amount of QTX to your node's public address.</p>
+                        <p>3. **Automatic Staking**: As soon as your balance is &gt; 0 and the node is online, it will automatically participate in the block minting lottery.</p>
+                        <p className="p-4 bg-yellow-400/10 border border-yellow-400/20 rounded-xl text-sm text-yellow-200/80">
+                            <strong>Note:</strong> Staking is completely passive. You do not need to "lock" your tokens; they remain available in your wallet at all times.
+                        </p>
+                    </div>
+                </section>
+            </div>
+        )
+    },
+    {
         id: 'oracle',
         title: 'Oracle Cloud',
         icon: <Cpu className="w-5 h-5" />,
