@@ -15,7 +15,11 @@ export const Logo: React.FC<LogoProps> = ({ className, size = 'md' }) => {
     };
 
     return (
-        <div className={cn("flex items-center gap-2", className)}>
+        <div
+            className={cn("flex items-center gap-2", className)}
+            role="img"
+            aria-label="Quantix Logo - Quantum-Safe Finance"
+        >
             <div
                 className={cn(
                     "rounded-lg bg-gradient-primary flex items-center justify-center glow-primary shrink-0",
@@ -32,6 +36,7 @@ export const Logo: React.FC<LogoProps> = ({ className, size = 'md' }) => {
             </span>
         </div>
     );
+
 };
 
 export const LogoIcon: React.FC<{ className?: string }> = ({ className }) => (

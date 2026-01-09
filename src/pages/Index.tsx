@@ -6,6 +6,7 @@ import VisionSection from '@/components/VisionSection';
 import TechnologySection from '@/components/TechnologySection';
 import TokenomicsSection from '@/components/TokenomicsSection';
 import RoadmapSection from '@/components/RoadmapSection';
+import FAQSection from '@/components/FAQSection';
 import Footer from '@/components/Footer';
 
 const Index = () => {
@@ -30,10 +31,12 @@ const Index = () => {
       <TechnologySection />
       <TokenomicsSection />
       <RoadmapSection />
+      <FAQSection />
       <Footer />
     </div>
   );
 };
+
 
 export default Index;
 

@@ -12,11 +12,13 @@ const Footer = () => {
           {/* Links */}
           <div className="flex flex-wrap items-center justify-center md:justify-end gap-6 text-sm text-muted-foreground">
             <a href="/whitepaper" className="hover:text-primary transition-colors">Whitepaper</a>
+            <a href="/#faq" className="hover:text-primary transition-colors">FAQ</a>
             <a href="https://explorer.quantumresistantcoin.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Explorer</a>
             <a href="https://wallet.quantumresistantcoin.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Wallet</a>
             <a href="https://faucet.quantumresistantcoin.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Faucet</a>
             <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">GitHub</a>
           </div>
+
 
           {/* Social */}
           <div className="flex items-center gap-4">
