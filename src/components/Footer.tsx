@@ -18,13 +18,15 @@ const Footer = () => {
             <a href="https://explorer.quantumresistantcoin.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Explorer</a>
             <a href="https://wallet.quantumresistantcoin.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Wallet</a>
             <a href="https://faucet.quantumresistantcoin.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Faucet</a>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">GitHub</a>
+            <a href="https://github.com/spacemen100/quantixchain" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">GitHub</a>
           </div>
 
           {/* Social */}
           <div className="flex items-center justify-center gap-4">
             <a
-              href="#"
+              href="https://github.com/spacemen100/quantixchain"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-12 h-12 rounded-xl border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-all bg-card/30"
             >
               <Github className="w-5 h-5" />

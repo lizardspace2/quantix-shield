@@ -12,6 +12,7 @@ const navLinks = [
   { label: 'FAQ', href: '#faq', external: false },
   { label: 'Explorer', href: 'https://explorer.quantumresistantcoin.com', external: true },
   { label: 'Faucet', href: 'https://faucet.quantumresistantcoin.com', external: true },
+  { label: 'GitHub', href: 'https://github.com/spacemen100/quantixchain', external: true },
 ];
 
 const Navigation = () => {

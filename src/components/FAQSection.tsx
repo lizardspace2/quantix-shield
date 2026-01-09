@@ -16,6 +16,10 @@ const faqs = [
     {
         question: "Is Quantix already live?",
         answer: "We are currently in Phase 1 (Genesis), focusing on the testnet deployment and validation of our quantum-resistant implementation before the upcoming Mainnet launch."
+    },
+    {
+        question: "Is Quantix open source?",
+        answer: "Yes, Quantix is committed to transparency. Our core blockchain code and development tools are open source and available on GitHub for community review and contribution."
     }
 ];
 
