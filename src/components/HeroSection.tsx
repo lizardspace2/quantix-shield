@@ -39,9 +39,11 @@ const HeroSection = () => {
                 Read Whitepaper
               </Button>
             </a>
-            <Button variant="heroOutline" size="xl">
-              Launch Wallet
-            </Button>
+            <a href="https://wallet.quantumresistantcoin.com" target="_blank" rel="noopener noreferrer">
+              <Button variant="heroOutline" size="xl">
+                Open Wallet
+              </Button>
+            </a>
           </div>
 
           {/* Feature Pills */}

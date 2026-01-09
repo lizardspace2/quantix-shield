@@ -7,20 +7,20 @@ const phases = [
     status: 'current',
     icon: Rocket,
     items: [
-      { text: 'Launch of Quantix Key Forge', completed: true },
+      { text: 'Launch of Quantix Wallet', completed: true },
       { text: 'Deployment of Testnet', completed: true },
-      { text: 'Validation of Crystals-Dilithium implementation', completed: false },
+      { text: 'Validation of Crystals-Dilithium implementation', completed: true },
     ],
   },
   {
     phase: 'Phase 2',
     title: 'Expansion',
-    status: 'upcoming',
+    status: 'current',
     icon: Globe,
     items: [
       { text: 'Mainnet Launch', completed: false },
       { text: 'Integration of public validator nodes', completed: false },
-      { text: 'Development of full block explorer', completed: false },
+      { text: 'Deployment of full block explorer', completed: true },
     ],
   },
   {
@@ -40,7 +40,7 @@ const RoadmapSection = () => {
     <section id="roadmap" className="py-24 relative bg-gradient-card overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px]" />
-      
+
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -61,16 +61,14 @@ const RoadmapSection = () => {
                 <div className="flex items-start gap-8">
                   {/* Icon */}
                   <div
-                    className={`relative z-10 w-16 h-16 rounded-2xl flex items-center justify-center shrink-0 ${
-                      phase.status === 'current'
+                    className={`relative z-10 w-16 h-16 rounded-2xl flex items-center justify-center shrink-0 ${phase.status === 'current'
                         ? 'bg-gradient-primary glow-primary'
                         : 'bg-muted border border-border'
-                    }`}
+                      }`}
                   >
                     <phase.icon
-                      className={`w-7 h-7 ${
-                        phase.status === 'current' ? 'text-primary-foreground' : 'text-muted-foreground'
-                      }`}
+                      className={`w-7 h-7 ${phase.status === 'current' ? 'text-primary-foreground' : 'text-muted-foreground'
+                        }`}
                     />
                   </div>
 
@@ -94,9 +92,8 @@ const RoadmapSection = () => {
                           className="flex items-center gap-3 text-muted-foreground"
                         >
                           <CheckCircle2
-                            className={`w-5 h-5 shrink-0 ${
-                              item.completed ? 'text-primary' : 'text-border'
-                            }`}
+                            className={`w-5 h-5 shrink-0 ${item.completed ? 'text-primary' : 'text-border'
+                              }`}
                           />
                           <span className={item.completed ? 'text-foreground' : ''}>
                             {item.text}
@@ -113,7 +110,7 @@ const RoadmapSection = () => {
 
         {/* Disclaimer */}
         <p className="text-center text-sm text-muted-foreground mt-16 max-w-2xl mx-auto">
-          This document is a technical and conceptual presentation of the Quantix project. 
+          This document is a technical and conceptual presentation of the Quantix project.
           Specifications may evolve with development.
         </p>
       </div>

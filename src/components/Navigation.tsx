@@ -4,10 +4,12 @@ import { Menu, X } from 'lucide-react';
 import { Logo } from './Logo';
 
 const navLinks = [
-  { label: 'Vision', href: '#vision' },
-  { label: 'Technology', href: '#technology' },
-  { label: 'Tokenomics', href: '#tokenomics' },
-  { label: 'Roadmap', href: '#roadmap' },
+  { label: 'Vision', href: '#vision', external: false },
+  { label: 'Technology', href: '#technology', external: false },
+  { label: 'Tokenomics', href: '#tokenomics', external: false },
+  { label: 'Roadmap', href: '#roadmap', external: false },
+  { label: 'Explorer', href: 'https://explorer.quantumresistantcoin.com', external: true },
+  { label: 'Faucet', href: 'https://faucet.quantumresistantcoin.com', external: true },
 ];
 
 const Navigation = () => {
@@ -22,10 +24,14 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+  const handleClick = (link: { label: string; href: string; external?: boolean }) => {
+    if (link.external) {
+      window.open(link.href, '_blank', 'noopener,noreferrer');
+    } else {
+      const element = document.querySelector(link.href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
     setIsMobileOpen(false);
   };
@@ -37,7 +43,7 @@ const Navigation = () => {
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <a href="#" className="flex items-center gap-2 group">
+          <a href="/" className="flex items-center gap-2 group">
             <Logo />
           </a>
 
@@ -46,15 +52,17 @@ const Navigation = () => {
             {navLinks.map((link) => (
               <button
                 key={link.label}
-                onClick={() => scrollToSection(link.href)}
+                onClick={() => handleClick(link)}
                 className="text-muted-foreground hover:text-primary transition-colors duration-200 font-medium"
               >
                 {link.label}
               </button>
             ))}
-            <Button variant="hero" size="sm">
-              Get Started
-            </Button>
+            <a href="https://wallet.quantumresistantcoin.com" target="_blank" rel="noopener noreferrer">
+              <Button variant="hero" size="sm">
+                Open Wallet
+              </Button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -73,15 +81,17 @@ const Navigation = () => {
               {navLinks.map((link) => (
                 <button
                   key={link.label}
-                  onClick={() => scrollToSection(link.href)}
+                  onClick={() => handleClick(link)}
                   className="text-muted-foreground hover:text-primary transition-colors duration-200 font-medium text-left py-2"
                 >
                   {link.label}
                 </button>
               ))}
-              <Button variant="hero" size="lg" className="mt-4">
-                Get Started
-              </Button>
+              <a href="https://wallet.quantumresistantcoin.com" target="_blank" rel="noopener noreferrer" className="mt-4">
+                <Button variant="hero" size="lg" className="w-full">
+                  Open Wallet
+                </Button>
+              </a>
             </div>
           </div>
         )}
