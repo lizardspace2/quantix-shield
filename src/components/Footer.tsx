@@ -14,6 +14,7 @@ const Footer = () => {
           {/* Links */}
           <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-sm font-medium text-muted-foreground max-w-xl">
             <a href="/whitepaper" className="hover:text-primary transition-colors">Whitepaper</a>
+            <a href="/tutorials" className="hover:text-primary transition-colors">Tutorials</a>
             <a href="/#faq" className="hover:text-primary transition-colors">FAQ</a>
             <a href="https://explorer.quantumresistantcoin.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Explorer</a>
             <a href="https://wallet.quantumresistantcoin.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Wallet</a>

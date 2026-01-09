@@ -9,6 +9,7 @@ const navLinks = [
   { label: 'Technology', href: '#technology', external: false },
   { label: 'Tokenomics', href: '#tokenomics', external: false },
   { label: 'Roadmap', href: '#roadmap', external: false },
+  { label: 'Tutorials', href: '/tutorials', external: false },
   { label: 'FAQ', href: '#faq', external: false },
   { label: 'Explorer', href: 'https://explorer.quantumresistantcoin.com', external: true },
   { label: 'Faucet', href: 'https://faucet.quantumresistantcoin.com', external: true },
