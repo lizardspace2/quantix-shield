@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from './ui/button';
 import { Menu, X } from 'lucide-react';
+import { Logo } from './Logo';
 
 const navLinks = [
   { label: 'Vision', href: '#vision' },
@@ -31,17 +32,13 @@ const Navigation = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-background/80 backdrop-blur-xl border-b border-border' : 'bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-background/80 backdrop-blur-xl border-b border-border' : 'bg-transparent'
+        }`}
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <a href="#" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-lg bg-gradient-primary flex items-center justify-center glow-primary">
-              <span className="font-display font-bold text-primary-foreground text-lg">Q</span>
-            </div>
-            <span className="font-display font-bold text-xl text-foreground">Quantix</span>
+          <a href="#" className="flex items-center gap-2 group">
+            <Logo />
           </a>
 
           {/* Desktop Navigation */}
