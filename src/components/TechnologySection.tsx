@@ -1,116 +1,109 @@
-import { Lock, Cpu, Key, Zap } from 'lucide-react';
+import { Lock, Cpu, Key, Zap, Shield } from 'lucide-react';
 
 const TechnologySection = () => {
   return (
-    <section id="technology" className="py-24 relative bg-gradient-card">
+    <section id="technology" className="py-32 relative">
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <span className="text-primary font-medium text-sm uppercase tracking-wider">Technology</span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold mt-4 mb-6">
-            Quantum-Resistant <span className="text-gradient">Architecture</span>
+        <div className="text-center mb-20">
+          <span className="text-primary font-bold text-xs uppercase tracking-[0.3em] mb-4 block">Core Engine</span>
+          <h2 className="font-display text-4xl md:text-6xl font-bold mt-4 mb-8 tracking-tight">
+            Next-Gen <span className="text-gradient">Architecture</span>
           </h2>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
+        <div className="grid lg:grid-cols-2 gap-12">
           {/* Post-Quantum Cryptography */}
-          <div className="p-6 md:p-8 rounded-2xl border border-border bg-card/50 backdrop-blur-sm">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                <Lock className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="font-display text-xl md:text-2xl font-semibold leading-tight">Post-Quantum Cryptography</h3>
+          <div className="p-10 rounded-[2.5rem] glass-card relative overflow-hidden group">
+            <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+              <Lock className="w-32 h-32 text-primary" />
             </div>
 
-            <p className="text-muted-foreground mb-8 leading-relaxed text-sm md:text-base">
-              Quantix uses <strong className="text-foreground">Crystals-Dilithium</strong>, a digital signature algorithm
-              selected by NIST for post-quantum cryptography standardization.
+            <div className="flex items-center gap-5 mb-8">
+              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0 glow-primary">
+                <Lock className="w-8 h-8 text-primary" />
+              </div>
+              <h3 className="font-display text-2xl md:text-3xl font-bold leading-tight">Post-Quantum<br />Security</h3>
+            </div>
+
+            <p className="text-muted-foreground mb-10 leading-relaxed text-lg font-light">
+              Quantix leverages <strong className="text-white font-semibold">Crystals-Dilithium</strong>,
+              the NIST gold standard for lattice-based digital signatures.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="p-4 rounded-xl bg-muted/50 border border-border">
-                <div className="flex items-center gap-2 mb-2">
-                  <Key className="w-4 h-4 text-primary" />
-                  <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Public Key</span>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/30 transition-colors">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2 rounded-lg bg-primary/10">
+                    <Key className="w-4 h-4 text-primary" />
+                  </div>
+                  <span className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Public Key</span>
                 </div>
-                <div className="flex items-baseline gap-1">
-                  <span className="font-display text-2xl font-bold text-foreground">1,312</span>
-                  <span className="text-xs text-muted-foreground">bytes</span>
+                <div className="flex items-baseline gap-2">
+                  <span className="font-display text-4xl font-bold text-white tracking-tighter">1,312</span>
+                  <span className="text-sm font-semibold text-primary">BYTES</span>
                 </div>
               </div>
-              <div className="p-4 rounded-xl bg-muted/50 border border-border">
-                <div className="flex items-center gap-2 mb-2">
-                  <Lock className="w-4 h-4 text-primary" />
-                  <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Private Key</span>
+              <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/30 transition-colors">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2 rounded-lg bg-primary/10">
+                    <Shield className="w-4 h-4 text-primary" />
+                  </div>
+                  <span className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Private Key</span>
                 </div>
-                <div className="flex items-baseline gap-1">
-                  <span className="font-display text-2xl font-bold text-foreground">2,528</span>
-                  <span className="text-xs text-muted-foreground">bytes</span>
+                <div className="flex items-baseline gap-2">
+                  <span className="font-display text-4xl font-bold text-white tracking-tighter">2,528</span>
+                  <span className="text-sm font-semibold text-primary">BYTES</span>
                 </div>
               </div>
             </div>
 
-            <div className="mt-6 p-4 rounded-xl bg-primary/5 border border-primary/20">
-              <div className="flex items-center gap-2 text-primary">
-                <Cpu className="w-5 h-5 flex-shrink-0" />
-                <span className="font-medium text-sm md:text-base">Dilithium2 Security Level</span>
+            <div className="mt-8 p-6 rounded-2xl bg-primary/5 border border-primary/20 backdrop-blur-md">
+              <div className="flex items-center gap-3 text-primary mb-2">
+                <Cpu className="w-6 h-6 animate-pulse" />
+                <span className="font-bold text-base uppercase tracking-wider">Dilithium2 Protocol</span>
               </div>
-              <p className="text-xs md:text-sm text-muted-foreground mt-1">
-                Equivalent to ~128 bits of quantum security
+              <p className="text-sm md:text-base text-muted-foreground font-light">
+                Secured at Level 2, providing approximately 128 bits of quantum security.
               </p>
             </div>
           </div>
 
           {/* Proof of Stake */}
-          <div className="p-6 md:p-8 rounded-2xl border border-border bg-card/50 backdrop-blur-sm">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
-                <Zap className="w-6 h-6 text-accent" />
-              </div>
-              <h3 className="font-display text-xl md:text-2xl font-semibold">Proof-of-Stake Consensus</h3>
+          <div className="p-10 rounded-[2.5rem] glass-card relative overflow-hidden group">
+            <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+              <Zap className="w-32 h-32 text-accent" />
             </div>
 
-            <p className="text-muted-foreground mb-8 leading-relaxed text-sm md:text-base">
-              Unlike energy-intensive Proof-of-Work, our PoS model allows QTX holders to secure
-              the network by staking their tokens.
+            <div className="flex items-center gap-5 mb-8">
+              <div className="w-16 h-16 rounded-2xl bg-accent/10 flex items-center justify-center shrink-0 glow-accent">
+                <Zap className="w-8 h-8 text-accent" />
+              </div>
+              <h3 className="font-display text-2xl md:text-3xl font-bold">Resilient<br />Consensus</h3>
+            </div>
+
+            <p className="text-muted-foreground mb-10 leading-relaxed text-lg font-light">
+              Our energy-efficient PoS model enables low-latency transactions without the environmental cost of traditional mining.
             </p>
 
             <div className="space-y-4">
-              <div className="flex items-start gap-4 p-4 rounded-xl bg-muted/50 border border-border">
-                <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center shrink-0 mt-0.5">
-                  <span className="text-accent font-bold text-sm">1</span>
+              {[
+                { id: 1, title: 'Stake Validation', desc: 'Secure the network by locking QTX tokens.' },
+                { id: 2, title: 'Instant Finality', desc: 'Transactions are confirmed in milliseconds.' },
+                { id: 3, title: 'Incentive Engine', desc: 'Earn rewards for active participation.' },
+              ].map((step) => (
+                <div key={step.id} className="flex items-start gap-5 p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-accent/30 transition-all group/item">
+                  <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center shrink-0 mt-0.5 group-hover/item:scale-110 transition-transform">
+                    <span className="text-accent font-bold text-sm">{step.id}</span>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-white mb-1 group-hover/item:text-accent transition-colors">{step.title}</h4>
+                    <p className="text-sm text-muted-foreground font-light leading-relaxed">
+                      {step.desc}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-semibold text-foreground mb-1 text-sm md:text-base">Validation</h4>
-                  <p className="text-xs md:text-sm text-muted-foreground">
-                    Validators are chosen to create new blocks based on their stake
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4 p-4 rounded-xl bg-muted/50 border border-border">
-                <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center shrink-0 mt-0.5">
-                  <span className="text-accent font-bold text-sm">2</span>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-foreground mb-1 text-sm md:text-base">Fast Finality</h4>
-                  <p className="text-xs md:text-sm text-muted-foreground">
-                    Quick transaction confirmation for seamless user experience
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4 p-4 rounded-xl bg-muted/50 border border-border">
-                <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center shrink-0 mt-0.5">
-                  <span className="text-accent font-bold text-sm">3</span>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-foreground mb-1 text-sm md:text-base">Economic Rewards</h4>
-                  <p className="text-xs md:text-sm text-muted-foreground">
-                    Incentives via controlled inflation and transaction fees
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>

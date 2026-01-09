@@ -6,43 +6,45 @@
 
 @layer base {
   :root {
-    --background: 222 47% 5%;
+    --background: 222 47% 3%;
     --foreground: 210 40% 98%;
 
-    --card: 222 47% 8%;
+    --card: 222 47% 6%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 222 47% 8%;
+    --popover: 222 47% 6%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 183 100% 50%;
-    --primary-foreground: 222 47% 5%;
+    --primary: 183 100% 45%;
+    --primary-foreground: 222 47% 3%;
 
-    --secondary: 220 60% 15%;
+    --secondary: 220 60% 12%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 220 40% 12%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 220 40% 10%;
+    --muted-foreground: 215 20% 60%;
 
-    --accent: 200 100% 60%;
-    --accent-foreground: 222 47% 5%;
+    --accent: 200 100% 55%;
+    --accent-foreground: 222 47% 3%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 40% 18%;
-    --input: 220 40% 18%;
-    --ring: 183 100% 50%;
+    --border: 220 40% 15%;
+    --input: 220 40% 15%;
+    --ring: 183 100% 45%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
     /* Custom Quantix tokens */
-    --glow-primary: 0 0 60px hsl(183 100% 50% / 0.4);
-    --glow-accent: 0 0 40px hsl(200 100% 60% / 0.3);
-    --gradient-hero: linear-gradient(135deg, hsl(222 47% 5%) 0%, hsl(220 60% 10%) 50%, hsl(222 47% 5%) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(220 60% 12% / 0.6) 0%, hsl(222 47% 8% / 0.8) 100%);
+    --glow-primary: 0 0 50px hsl(183 100% 50% / 0.3);
+    --glow-accent: 0 0 30px hsl(200 100% 60% / 0.2);
+    --gradient-hero: radial-gradient(circle at 50% 0%, hsl(220 60% 10%) 0%, hsl(222 47% 3%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(220 60% 10% / 0.4) 0%, hsl(222 47% 5% / 0.6) 100%);
     --gradient-primary: linear-gradient(135deg, hsl(183 100% 50%) 0%, hsl(200 100% 60%) 100%);
     --gradient-text: linear-gradient(135deg, hsl(183 100% 60%) 0%, hsl(200 100% 70%) 50%, hsl(260 100% 70%) 100%);
+    --glass-background: rgba(8, 11, 19, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.08);
   }
 }
 
@@ -54,10 +56,20 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-family: 'Inter', sans-serif;
+    background-image:
+      radial-gradient(circle at 50% -20%, hsl(183 100% 30% / 0.15), transparent 70%),
+      radial-gradient(circle at 0% 100%, hsl(200 100% 20% / 0.1), transparent 50%);
+    background-attachment: fixed;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: 'Space Grotesk', sans-serif;
+    @apply tracking-tight;
   }
 }
 
@@ -67,6 +79,13 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  .glass-card {
+    background: var(--glass-background);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   }
 
   .glow-primary {
@@ -90,14 +109,15 @@
   }
 
   .grid-pattern {
-    background-image: 
-      linear-gradient(hsl(var(--border) / 0.3) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(var(--border) / 0.3) 1px, transparent 1px);
-    background-size: 60px 60px;
+    background-image:
+      linear-gradient(hsl(var(--border) / 0.2) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.2) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(circle at center, black, transparent 80%);
   }
 
   .animate-pulse-slow {
-    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    animation: pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
 
   .animate-float {
@@ -105,7 +125,23 @@
   }
 
   @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
+
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+      transform: translateY(-15px) rotate(1deg);
+    }
+  }
+
+  .noise-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    opacity: 0.03;
+    pointer-events: none;
+    background-image: url('https://grainy-gradients.vercel.app/noise.svg');
   }
 }

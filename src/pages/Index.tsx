@@ -24,14 +24,17 @@ const Index = () => {
   }, [hash]);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-transparent relative">
+      <div className="noise-overlay" />
       <Navigation />
-      <HeroSection />
-      <VisionSection />
-      <TechnologySection />
-      <TokenomicsSection />
-      <RoadmapSection />
-      <FAQSection />
+      <main className="relative">
+        <HeroSection />
+        <VisionSection />
+        <TechnologySection />
+        <TokenomicsSection />
+        <RoadmapSection />
+        <FAQSection />
+      </main>
       <Footer />
     </div>
   );

@@ -51,61 +51,62 @@ const RoadmapSection = () => {
         </div>
 
         {/* Timeline */}
-        <div className="max-w-4xl mx-auto">
-          <div className="relative">
-            {/* Vertical Line */}
-            <div className="absolute left-6 sm:left-8 top-0 bottom-0 w-0.5 bg-border" />
+        <div className="max-w-4xl mx-auto relative">
+          {/* Main Connector Line */}
+          <div className="absolute left-6 sm:left-10 top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-border to-transparent" />
 
-            {phases.map((phase, index) => (
-              <div key={phase.phase} className="relative mb-10 last:mb-0">
-                <div className="flex items-start gap-4 sm:gap-8">
-                  {/* Icon */}
-                  <div
-                    className={`relative z-10 w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center shrink-0 ${phase.status === 'current'
-                      ? 'bg-gradient-primary glow-primary'
-                      : 'bg-muted border border-border'
+          {phases.map((phase, index) => (
+            <div key={phase.phase} className="relative mb-16 last:mb-0 group/phase">
+              <div className="flex items-start gap-6 sm:gap-10">
+                {/* Icon Container */}
+                <div
+                  className={`relative z-10 w-12 h-12 sm:w-20 sm:h-20 rounded-2xl sm:rounded-3xl flex items-center justify-center shrink-0 transition-all duration-500 group-hover/phase:scale-110 ${phase.status === 'current'
+                    ? 'bg-gradient-primary glow-primary'
+                    : 'glass-card'
+                    }`}
+                >
+                  <phase.icon
+                    className={`w-6 h-6 sm:w-10 sm:h-10 ${phase.status === 'current' ? 'text-white' : 'text-muted-foreground'
                       }`}
-                  >
-                    <phase.icon
-                      className={`w-5 h-5 sm:w-7 sm:h-7 ${phase.status === 'current' ? 'text-primary-foreground' : 'text-muted-foreground'
-                        }`}
-                    />
-                  </div>
+                  />
+                  {phase.status === 'current' && (
+                    <div className="absolute inset-0 rounded-2xl sm:rounded-3xl animate-ping bg-primary/20 -z-10" />
+                  )}
+                </div>
 
-                  {/* Content */}
-                  <div className="flex-1 pb-8">
-                    <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                      <span className="text-primary font-bold text-xs sm:text-sm tracking-widest uppercase">{phase.phase}</span>
-                      {phase.status === 'current' && (
-                        <span className="px-2 py-0.5 rounded-full bg-primary/10 text-primary text-[10px] sm:text-xs font-semibold uppercase">
-                          Current
+                {/* Content Card */}
+                <div className="flex-1 pb-4">
+                  <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-4">
+                    <span className="text-primary font-bold text-xs sm:text-sm tracking-[0.3em] uppercase">{phase.phase}</span>
+                    {phase.status === 'current' && (
+                      <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] sm:text-xs font-bold uppercase tracking-wider border border-primary/20">
+                        Active Deployment
+                      </span>
+                    )}
+                  </div>
+                  <h3 className="font-display text-2xl sm:text-4xl font-bold mb-6 text-white tracking-tight">
+                    {phase.title}
+                  </h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {phase.items.map((item, itemIndex) => (
+                      <div
+                        key={itemIndex}
+                        className="flex items-center gap-4 p-4 rounded-xl glass-card transition-colors hover:bg-white/5"
+                      >
+                        <CheckCircle2
+                          className={`w-5 h-5 shrink-0 ${item.completed ? 'text-primary' : 'text-white/10'
+                            }`}
+                        />
+                        <span className={`${item.completed ? 'text-white' : 'text-muted-foreground'} text-sm font-medium`}>
+                          {item.text}
                         </span>
-                      )}
-                    </div>
-                    <h3 className="font-display text-xl sm:text-2xl font-bold mb-4 text-foreground">
-                      {phase.title}
-                    </h3>
-                    <div className="space-y-3">
-                      {phase.items.map((item, itemIndex) => (
-                        <div
-                          key={itemIndex}
-                          className="flex items-start gap-3 text-muted-foreground"
-                        >
-                          <CheckCircle2
-                            className={`w-4 h-4 sm:w-5 sm:h-5 shrink-0 mt-0.5 ${item.completed ? 'text-primary' : 'text-border'
-                              }`}
-                          />
-                          <span className={`${item.completed ? 'text-foreground' : ''} text-sm sm:text-base`}>
-                            {item.text}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
 
         {/* Disclaimer */}

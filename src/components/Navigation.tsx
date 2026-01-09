@@ -48,13 +48,16 @@ const Navigation = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-background/80 backdrop-blur-xl border-b border-border' : 'bg-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
+        ? 'py-3 bg-background/40 backdrop-blur-xl border-b border-white/5'
+        : 'py-6 bg-transparent'
         }`}
     >
-      <div className="container mx-auto px-6 py-4">
+      <div className="container mx-auto px-6">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 group">
-            <Logo />
+          <Link to="/" className="flex items-center gap-2 group relative">
+            <div className="absolute -inset-2 bg-primary/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <Logo className="relative z-10 transition-transform duration-500 group-hover:scale-105" />
           </Link>
 
           {/* Desktop Navigation */}
