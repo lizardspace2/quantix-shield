@@ -97,9 +97,17 @@ const Navigation = () => {
         </div>
 
         {/* Mobile Navigation */}
-        {isMobileOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-xl border-b border-border p-6">
-            <div className="flex flex-col gap-4">
+        <div className={`md:hidden fixed inset-0 bg-background/98 backdrop-blur-2xl transition-all duration-300 transform ${isMobileOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0 pointer-events-none'
+          }`}>
+          <div className="flex flex-col items-center justify-center min-h-screen gap-8 p-6">
+            <button
+              className="absolute top-6 right-6 text-foreground"
+              onClick={() => setIsMobileOpen(false)}
+            >
+              <X size={32} />
+            </button>
+
+            <div className="flex flex-col items-center gap-6">
               {navLinks.map((link) => (
                 link.external ? (
                   <a
@@ -107,7 +115,8 @@ const Navigation = () => {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-primary transition-colors duration-200 font-medium text-left py-2"
+                    className="text-2xl font-semibold text-muted-foreground hover:text-primary transition-colors duration-200"
+                    onClick={() => setIsMobileOpen(false)}
                   >
                     {link.label}
                   </a>
@@ -115,20 +124,20 @@ const Navigation = () => {
                   <button
                     key={link.label}
                     onClick={() => handleClick(link)}
-                    className="text-muted-foreground hover:text-primary transition-colors duration-200 font-medium text-left py-2"
+                    className="text-2xl font-semibold text-muted-foreground hover:text-primary transition-colors duration-200"
                   >
                     {link.label}
                   </button>
                 )
               ))}
-              <a href="https://wallet.quantumresistantcoin.com" target="_blank" rel="noopener noreferrer" className="mt-4">
-                <Button variant="hero" size="lg" className="w-full">
+              <a href="https://wallet.quantumresistantcoin.com" target="_blank" rel="noopener noreferrer" className="mt-4 w-full max-w-[280px]">
+                <Button variant="hero" size="lg" className="w-full text-lg py-6">
                   Open Wallet
                 </Button>
               </a>
             </div>
           </div>
-        )}
+        </div>
 
       </div>
     </nav>

@@ -20,44 +20,44 @@ const HeroSection = () => {
           </div>
 
           {/* Main Title */}
-          <h1 className="font-display text-5xl md:text-7xl font-bold mb-6 animate-slide-up" style={{ animationDelay: '0.1s' }}>
+          <h1 className="font-display text-4xl sm:text-5xl md:text-7xl font-bold mb-6 animate-slide-up leading-[1.1]" style={{ animationDelay: '0.1s' }}>
             The Future of
             <br />
             <span className="text-gradient">Quantum-Safe</span> Finance
           </h1>
 
           {/* Subtitle */}
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 animate-slide-up" style={{ animationDelay: '0.2s' }}>
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 animate-slide-up px-2" style={{ animationDelay: '0.2s' }}>
             Quantix (QTX) is a next-generation blockchain designed to withstand quantum computing threats,
             leveraging Crystals-Dilithium cryptography and energy-efficient Proof-of-Stake.
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-slide-up" style={{ animationDelay: '0.3s' }}>
-            <a href="/whitepaper">
-              <Button variant="hero" size="xl">
+            <a href="/whitepaper" className="w-full sm:w-auto">
+              <Button variant="hero" size="xl" className="w-full">
                 Read Whitepaper
               </Button>
             </a>
-            <a href="https://wallet.quantumresistantcoin.com" target="_blank" rel="noopener noreferrer">
-              <Button variant="heroOutline" size="xl">
+            <a href="https://wallet.quantumresistantcoin.com" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+              <Button variant="heroOutline" size="xl" className="w-full">
                 Open Wallet
               </Button>
             </a>
           </div>
 
           {/* Feature Pills */}
-          <div className="flex flex-wrap items-center justify-center gap-6 animate-slide-up" style={{ animationDelay: '0.4s' }}>
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <Shield className="w-5 h-5 text-primary" />
+          <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 sm:gap-8 animate-slide-up" style={{ animationDelay: '0.4s' }}>
+            <div className="flex items-center gap-2 text-sm sm:text-base text-muted-foreground">
+              <Shield className="w-5 h-5 text-primary shrink-0" />
               <span>NIST-Approved PQC</span>
             </div>
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <Zap className="w-5 h-5 text-primary" />
+            <div className="flex items-center gap-2 text-sm sm:text-base text-muted-foreground">
+              <Zap className="w-5 h-5 text-primary shrink-0" />
               <span>Fast Finality</span>
             </div>
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <Leaf className="w-5 h-5 text-primary" />
+            <div className="flex items-center gap-2 text-sm sm:text-base text-muted-foreground">
+              <Leaf className="w-5 h-5 text-primary shrink-0" />
               <span>Low Carbon PoS</span>
             </div>
           </div>

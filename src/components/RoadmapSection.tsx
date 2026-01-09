@@ -54,48 +54,48 @@ const RoadmapSection = () => {
         <div className="max-w-4xl mx-auto">
           <div className="relative">
             {/* Vertical Line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-border hidden md:block" />
+            <div className="absolute left-6 sm:left-8 top-0 bottom-0 w-0.5 bg-border" />
 
             {phases.map((phase, index) => (
-              <div key={phase.phase} className="relative mb-12 last:mb-0">
-                <div className="flex items-start gap-8">
+              <div key={phase.phase} className="relative mb-10 last:mb-0">
+                <div className="flex items-start gap-4 sm:gap-8">
                   {/* Icon */}
                   <div
-                    className={`relative z-10 w-16 h-16 rounded-2xl flex items-center justify-center shrink-0 ${phase.status === 'current'
-                        ? 'bg-gradient-primary glow-primary'
-                        : 'bg-muted border border-border'
+                    className={`relative z-10 w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center shrink-0 ${phase.status === 'current'
+                      ? 'bg-gradient-primary glow-primary'
+                      : 'bg-muted border border-border'
                       }`}
                   >
                     <phase.icon
-                      className={`w-7 h-7 ${phase.status === 'current' ? 'text-primary-foreground' : 'text-muted-foreground'
+                      className={`w-5 h-5 sm:w-7 sm:h-7 ${phase.status === 'current' ? 'text-primary-foreground' : 'text-muted-foreground'
                         }`}
                     />
                   </div>
 
                   {/* Content */}
                   <div className="flex-1 pb-8">
-                    <div className="flex items-center gap-3 mb-4">
-                      <span className="text-primary font-medium text-sm">{phase.phase}</span>
+                    <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                      <span className="text-primary font-bold text-xs sm:text-sm tracking-widest uppercase">{phase.phase}</span>
                       {phase.status === 'current' && (
-                        <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium">
+                        <span className="px-2 py-0.5 rounded-full bg-primary/10 text-primary text-[10px] sm:text-xs font-semibold uppercase">
                           Current
                         </span>
                       )}
                     </div>
-                    <h3 className="font-display text-2xl font-semibold mb-4 text-foreground">
+                    <h3 className="font-display text-xl sm:text-2xl font-bold mb-4 text-foreground">
                       {phase.title}
                     </h3>
                     <div className="space-y-3">
                       {phase.items.map((item, itemIndex) => (
                         <div
                           key={itemIndex}
-                          className="flex items-center gap-3 text-muted-foreground"
+                          className="flex items-start gap-3 text-muted-foreground"
                         >
                           <CheckCircle2
-                            className={`w-5 h-5 shrink-0 ${item.completed ? 'text-primary' : 'text-border'
+                            className={`w-4 h-4 sm:w-5 sm:h-5 shrink-0 mt-0.5 ${item.completed ? 'text-primary' : 'text-border'
                               }`}
                           />
-                          <span className={item.completed ? 'text-foreground' : ''}>
+                          <span className={`${item.completed ? 'text-foreground' : ''} text-sm sm:text-base`}>
                             {item.text}
                           </span>
                         </div>

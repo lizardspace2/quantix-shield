@@ -5,12 +5,14 @@ const Footer = () => {
   return (
     <footer className="py-12 border-t border-border">
       <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-10">
           {/* Logo */}
-          <Logo size="sm" />
+          <div className="flex justify-center md:justify-start">
+            <Logo size="sm" />
+          </div>
 
           {/* Links */}
-          <div className="flex flex-wrap items-center justify-center md:justify-end gap-6 text-sm text-muted-foreground">
+          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-sm font-medium text-muted-foreground max-w-xl">
             <a href="/whitepaper" className="hover:text-primary transition-colors">Whitepaper</a>
             <a href="/#faq" className="hover:text-primary transition-colors">FAQ</a>
             <a href="https://explorer.quantumresistantcoin.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Explorer</a>
@@ -19,18 +21,17 @@ const Footer = () => {
             <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">GitHub</a>
           </div>
 
-
           {/* Social */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center justify-center gap-4">
             <a
               href="#"
-              className="w-10 h-10 rounded-lg border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-all"
+              className="w-12 h-12 rounded-xl border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-all bg-card/30"
             >
               <Github className="w-5 h-5" />
             </a>
             <a
               href="#"
-              className="w-10 h-10 rounded-lg border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-all"
+              className="w-12 h-12 rounded-xl border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-all bg-card/30"
             >
               <Twitter className="w-5 h-5" />
             </a>
